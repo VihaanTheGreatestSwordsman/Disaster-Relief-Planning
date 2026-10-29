@@ -1,0 +1,85 @@
+# disaster_relief_planning.py
+
+def disaster_relief_plan(disaster_type, location, people_count, supplies_available):
+    disaster_type = disaster_type.lower()
+    location = location.title()
+
+    # Basic emergency checklist
+    checklist = [
+        "1. Check for injuries and call emergency services if needed.",
+        "2. Move people to a safe area away from danger.",
+        "3. Report the situation to local authorities and emergency contacts.",
+        "4. Assess food, water, medicine, and shelter needs.",
+        "5. Organize volunteers and assign tasks clearly.",
+        "6. Communicate with affected families and update them regularly.",
+        "7. Keep records of aid provided and people helped.",
+        "8. Monitor conditions and prepare for the next phase of relief."
+    ]
+
+    if disaster_type == "flood":
+        checklist.insert(0, "Flood response: move people to higher ground and avoid flooded roads.")
+    elif disaster_type == "earthquake":
+        checklist.insert(0, "Earthquake response: check for structural damage and avoid unsafe buildings.")
+    elif disaster_type == "fire":
+        checklist.insert(0, "Fire response: evacuate quickly and keep fire extinguishers ready.")
+    elif disaster_type == "storm":
+        checklist.insert(0, "Storm response: secure shelter, power, and emergency supplies.")
+    else:
+        checklist.insert(0, f"{disaster_type.title()} response: assess immediate hazards and prioritize safety.")
+
+    # Add basic relief summary
+    summary = f"""
+Disaster Relief Planning Summary
+Location: {location}
+Disaster Type: {disaster_type.title()}
+People Affected: {people_count}
+Supplies Available: {supplies_available}
+
+Priority Actions:
+"""
+    for item in checklist:
+        summary += f"{item}\n"
+
+    summary += """
+Quick Team Roles:
+- Safety Officer: checks hazards and keeps people safe
+- Medical Coordinator: handles injuries and medical needs
+- Supply Manager: tracks food, water, and essentials
+- Communication Lead: updates families and authorities
+- Volunteer Coordinator: organizes support teams
+"""
+
+    return summary
+
+
+if __name__ == "__main__":
+    disaster = input("Enter disaster type (flood, earthquake, fire, storm): ").strip()
+    location = input("Enter location: ").strip()
+    people = input("How many people are affected? ").strip()
+    supplies = input("What supplies are available? ").strip()
+
+    print("\n" + disaster_relief_plan(disaster, location, people, supplies))
+Example output:
+
+Python
+Enter disaster type (flood, earthquake, fire, storm): flood
+Enter location: Dhaka
+How many people are affected? 250
+What supplies are available? water, blankets, first aid kits, lanterns
+
+Disaster Relief Planning Summary
+Location: Dhaka
+Disaster Type: Flood
+People Affected: 250
+Supplies Available: water, blankets, first aid kits, lanterns
+
+Priority Actions:
+Flood response: move people to higher ground and avoid flooded roads.
+1. Check for injuries and call emergency services if needed.
+2. Move people to a safe area away from danger.
+3. Report the situation to local authorities and emergency contacts.
+4. Assess food, water, medicine, and shelter needs.
+5. Organize volunteers and assign tasks clearly.
+6. Communicate with affected families and update them regularly.
+7. Keep records of aid provided and people helped.
+8. Monitor conditions and prepare for the next phase of relief.
